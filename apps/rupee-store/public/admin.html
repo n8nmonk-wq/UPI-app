@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Store Orders Live</title>
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/admin.css">
+</head>
+<body>
+  <header class="topbar">
+    <span class="brand"><span class="brand-mark">₹</span> Orders — live</span>
+    <span class="live" id="liveBadge"><span class="dot"></span><span id="liveText">Connecting…</span></span>
+  </header>
+
+  <main class="page">
+    <section id="login" class="card login" hidden>
+      <h1>Merchant dashboard</h1>
+      <p class="muted">Enter the admin token for this store.</p>
+      <form id="loginForm">
+        <input id="tokenInput" type="password" autocomplete="current-password" placeholder="Admin token" required minlength="32">
+        <button class="buy" type="submit">Open dashboard</button>
+      </form>
+      <p id="loginError" class="error" role="alert" hidden></p>
+    </section>
+
+    <section id="dash" hidden>
+      <div id="gatewayBanner" class="banner" hidden></div>
+      <div class="stats">
+        <div class="card stat"><span class="label">Paid today (IST)</span><span class="value" id="statPaidToday">₹0.00</span><span class="sub" id="statPaidTodayCount"></span></div>
+        <div class="card stat"><span class="label">Paid, all time</span><span class="value" id="statPaidAll">₹0.00</span><span class="sub" id="statPaidAllCount"></span></div>
+        <div class="card stat"><span class="label">Waiting for payment</span><span class="value" id="statPending">0</span><span class="sub">open checkouts</span></div>
+        <div class="card stat"><span class="label">Needs review</span><span class="value" id="statReview">0</span><span class="sub">check in gateway admin</span></div>
+      </div>
+
+      <div class="grid">
+        <section class="card">
+          <div class="card-head">
+            <h2>Orders</h2>
+            <span class="muted small" id="updatedAt"></span>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>Created</th><th>Order</th><th>Amount</th><th>Status</th><th>UTR</th><th>Paid at</th></tr>
+              </thead>
+              <tbody id="ordersBody"></tbody>
+            </table>
+          </div>
+          <p id="emptyOrders" class="muted" hidden>No orders yet.</p>
+        </section>
+
+        <section class="card">
+          <div class="card-head"><h2>Activity</h2></div>
+          <ol id="events" class="events"></ol>
+        </section>
+      </div>
+      <p class="muted small"><button id="logoutBtn" class="linkish" type="button">Sign out</button></p>
+    </section>
+  </main>
+  <script src="/admin.js"></script>
+</body>
+</html>

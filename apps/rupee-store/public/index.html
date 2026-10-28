@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>One Rupee Store</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <span class="brand"><span class="brand-mark">₹</span> One Rupee Store</span>
+    <span class="secure">Secure UPI checkout</span>
+  </header>
+
+  <main class="page">
+    <section class="product" aria-labelledby="productName">
+      <div class="art" aria-hidden="true">
+        <div class="coin">₹1</div>
+      </div>
+      <div class="details">
+        <p class="eyebrow">Digital item</p>
+        <h1 id="productName">Lucky One Rupee Pass</h1>
+        <p id="productDescription" class="description">A tiny digital thank-you, paid by UPI straight to the merchant bank account.</p>
+        <p class="price"><span class="currency">₹</span><span id="productPrice">1.00</span></p>
+        <button id="buyBtn" class="buy" type="button">Buy now with UPI</button>
+        <p id="buyError" class="error" role="alert" hidden></p>
+        <ul class="facts">
+          <li>Pay with any UPI app: GPay, PhonePe, Paytm, BHIM</li>
+          <li>Money goes straight to the merchant's bank account</li>
+          <li>Confirmed automatically once the bank credit is seen</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="orderPanel" class="order" aria-live="polite" hidden>
+      <div id="orderIcon" class="order-icon"></div>
+      <div>
+        <h2 id="orderTitle">Checking your payment…</h2>
+        <p id="orderText" class="muted"></p>
+        <dl class="order-meta">
+          <div><dt>Order</dt><dd id="orderId"></dd></div>
+          <div><dt>Amount</dt><dd id="orderAmount"></dd></div>
+          <div id="utrRow" hidden><dt>UPI reference (UTR)</dt><dd id="orderUtr"></dd></div>
+        </dl>
+        <button id="newOrderBtn" class="secondary" type="button" hidden>Buy again</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">Payments processed by a self-hosted YOUPI PG gateway.</footer>
+  <script src="/app.js"></script>
+</body>
+</html>

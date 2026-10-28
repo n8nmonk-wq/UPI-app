@@ -1,0 +1,19 @@
+{
+  "name": "rupee-store",
+  "version": "1.0.0",
+  "private": true,
+  "description": "One-page store selling a single ₹1 product, paid through the self-hosted YOUPI PG gateway. Deploys to Vercel with a Neon Postgres database.",
+  "type": "module",
+  "main": "./src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node dev-server.js",
+    "test": "node --test src/__tests__/*.test.js test/*.test.js"
+  },
+  "dependencies": {
+    "@neondatabase/serverless": "1.1.0"
+  },
+  "engines": {
+    "node": "22.x"
+  }
+}
